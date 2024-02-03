@@ -1,36 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { useBookStore } from './store/bookstore';
-
-
+import { BlankScreen } from './components/screen';
+import { ClippedDrawer } from './components/Sidebar/sidebar';
 function App() {
   const amount = useBookStore(state => state.amount)
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
       <h2>Books: {amount}</h2>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BlankScreen />
+      <ClippedDrawer open={drawerOpen} onClose={toggleDrawer} />
+      {/* <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/environment" component={Environment} />
+      </Switch> */}
     </>
   )
 }
