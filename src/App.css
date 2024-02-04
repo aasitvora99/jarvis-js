@@ -12,3 +12,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.MuiDrawer-paper {
+  width: 240px;
+  box-sizing: 'border-box';
+}
