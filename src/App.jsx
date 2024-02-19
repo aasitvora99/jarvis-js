@@ -3,9 +3,9 @@ import './App.css'
 import { useBookStore } from './store/bookstore';
 import { BlankScreen } from './components/screen';
 import { ClippedDrawer } from './components/Sidebar/sidebar';
-import { Route, Switch } from 'react-router-dom';
-import environment from './components/Pages/environment';
-import home from './components/Pages/home';
+// import { Route, Switch } from 'react-router-dom';
+// import {Environment} from './components/Pages/environment';
+// import {Home} from './components/Pages/home';
 
 function App() {
   const amount = useBookStore(state => state.amount)
@@ -20,10 +20,10 @@ function App() {
       <h2>Books: {amount + 10}</h2>
       <BlankScreen />
       <ClippedDrawer open={drawerOpen} onClose={toggleDrawer} />
-      <Switch>
-        <Route path="/home" component={home} />
-        <Route path="/environment" component={environment} />
-      </Switch>
+      {/* <Switch>
+        <Route path="/home" component={Home} />
+        <Route path="/environment" component={Environment} />
+      </Switch> */}
     </>
   )
 }
